@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Correction</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin:0;
+      font-family: 'Poppins', sans-serif;
+      background:#f4f6f8;
+      color:#333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width:240px;
+      height:100vh;
+      position:fixed;
+      top:0;
+      left:0;
+      background:#1f2937;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      padding:20px;
+    }
+    .sidebar a {
+      color:white;
+      text-decoration:none;
+      padding:12px 15px;
+      margin:5px 0;
+      border-radius:8px;
+      display:block;
+      transition:0.3s;
+    }
+    .sidebar a:hover {
+      background:#374151;
+    }
+    .sidebar h2 {
+      text-align:center;
+      margin-bottom:30px;
+      font-size:22px;
+      color:#fbbf24;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left:240px;
+      padding:40px;
+    }
+    .header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    }
+    .header h1 {
+      margin:0;
+      font-size:28px;
+      color:#111827;
+    }
+    .logout-btn {
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .logout-btn:hover {
+      opacity:0.9;
+    }
+
+    /* Card/Table */
+    .card {
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    th, td {
+      text-align:left;
+      padding:12px;
+      border-bottom:1px solid #e5e7eb;
+      font-size:14px;
+    }
+    th {
+      background:#111827;
+      color:white;
+    }
+    tr:hover {
+      background-color:#f1f1f1;
+    }
+    input[type="number"] {
+      width:70px;
+      padding:6px;
+      border-radius:6px;
+      border:1px solid #ccc;
+    }
+    .save-btn {
+      padding:6px 12px;
+      border:none;
+      border-radius:6px;
+      background:#fbbf24;
+      color:#111827;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.2s;
+    }
+    .save-btn:hover {
+      opacity:0.9;
+    }
+    a.answer-link {
+      color:#fbbf24;
+      text-decoration:none;
+    }
+    a.answer-link:hover {
+      text-decoration:underline;
+    }
+
+    @media(max-width:768px){
+      .main-content{margin-left:20px; padding:20px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Teacher Panel</h2>
+     <a href="tdashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="tcheckgrp.html"><i class="fas fa-book"></i> View groups</a>
+    <a href="teachers_resources.html"><i class="fas fa-sign-out-alt"></i> Resourses</a>
+     <a href="assign_project.html"><i class="fas fa-home"></i> Assign project</a>
+    <a href="view_students.html"><i class="fas fa-user-graduate"></i> View Students</a>
+    <a href="teacher_messages.html"><i class="fas fa-envelope"></i> Messages</a>
+    <a href="tprofile.html"><i class="fas fa-user"></i> Profile</a>
+    <a href="corrections.html"><i class="fas fa-sign-out-alt"></i> Correction</a>
+    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Correct Assignments</h1>
+      <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <div class="card">
+      <table id="correctionTable">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Assignment</th>
+            <th>Submitted Answer</th>
+            <th>Marks</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>Math Project 1</td>
+            <td><a href="#" class="answer-link">View Answer</a></td>
+            <td><input type="number" min="0" max="100" value="0"></td>
+            <td><button class="save-btn">Save</button></td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>Science Project 1</td>
+            <td><a href="#" class="answer-link">View Answer</a></td>
+            <td><input type="number" min="0" max="100" value="0"></td>
+            <td><button class="save-btn">Save</button></td>
+          </tr>
+          <tr>
+            <td>Mike Johnson</td>
+            <td>History Essay</td>
+            <td><a href="#" class="answer-link">View Answer</a></td>
+            <td><input type="number" min="0" max="100" value="0"></td>
+            <td><button class="save-btn">Save</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const saveButtons = document.querySelectorAll('.save-btn');
+    saveButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const row = button.closest('tr');
+        const studentName = row.cells[0].textContent;
+        const assignment = row.cells[1].textContent;
+        const marks = row.querySelector('input[type="number"]').value;
+
+        // Save marks in localStorage (optional)
+        localStorage.setItem(`${studentName}_${assignment}`, marks);
+
+        alert(`Marks for ${studentName} (${assignment}) saved: ${marks}`);
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Progress Report</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* === mytheme styling === */
+    body {
+      margin:0;
+      font-family: 'Poppins', sans-serif;
+      background:#f4f6f8;
+      color:#333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width:240px;
+      height:100vh;
+      position:fixed;
+      top:0;
+      left:0;
+      background:#1f2937;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      padding:20px;
+    }
+    .sidebar h2 {
+      text-align:center;
+      margin-bottom:30px;
+      font-size:22px;
+      color:#fbbf24;
+    }
+    .sidebar a {
+      color:white;
+      text-decoration:none;
+      padding:12px 15px;
+      margin:5px 0;
+      border-radius:8px;
+      display:block;
+      transition:0.3s;
+    }
+    .sidebar a:hover { background:#374151; }
+
+    /* Main Content */
+    .main-content {
+      margin-left:240px;
+      padding:40px;
+    }
+    .header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    }
+    .header h1 {
+      margin:0;
+      font-size:28px;
+      color:#111827;
+    }
+    .logout-btn {
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .logout-btn:hover { opacity:0.9; }
+
+    /* Report Container */
+    .report-container {
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    h2 { color:#fbbf24; text-align:center; margin-bottom:20px; }
+
+    .student-info p { margin:5px 0; font-size:16px; }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin-bottom:30px;
+    }
+    th, td {
+      padding:12px;
+      text-align:left;
+      border-bottom:1px solid #e5e7eb;
+      font-size:14px;
+    }
+    th { background:#111827; color:white; }
+    tr:last-child td { border-bottom:none; }
+    tr:hover { background:#f1f5f9; }
+
+    /* Status Styles */
+    .status-completed { color:green; font-weight:600; }
+    .status-pending { color:#fbbf24; font-weight:600; }
+    .status-overdue { color:red; font-weight:600; }
+
+    /* Progress Bars */
+    .progress-container {
+      background:#e5e7eb;
+      border-radius:8px;
+      overflow:hidden;
+      height:15px;
+      width:150px;
+    }
+    .progress-bar {
+      height:100%;
+      text-align:center;
+      color:white;
+      font-size:12px;
+      line-height:15px;
+    }
+    .progress-completed { background:#28a745; }
+    .progress-pending { background:#fbbf24; color:#111; }
+    .progress-overdue { background:#dc3545; }
+
+    /* Print Button */
+    .print-btn {
+      display:block;
+      margin:0 auto;
+      padding:12px 25px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .print-btn:hover { opacity:0.9; }
+
+    @media print {
+      body { background:white; }
+      .print-btn, .sidebar { display:none; }
+      .main-content { margin-left:0; padding:0; }
+      .report-container { box-shadow:none; border-radius:0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Student Panel</h2>
+    <a href="student_dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="studentgroup.html"><i class="fas fa-users"></i> My Group</a>
+    <a href="student_projects.html"><i class="fas fa-book"></i> My Projects</a>
+    <a href="student_assignments.html"><i class="fas fa-tasks"></i> Assignments</a>
+    <a href="student_milestones.html"><i class="fas fa-flag"></i> Milestones</a>
+    <a href="student_report.html"><i class="fas fa-file-alt"></i> Progress Report</a>
+    <a href="student_resources.html"><i class="fas fa-folder-open"></i> Resources</a>
+    <a href="student_settings.html"><i class="fas fa-cog"></i> Settings</a>
+    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <h1>Progress Report</h1>
+      <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <div class="report-container">
+      <h2>John Doe</h2>
+      <div class="student-info">
+        <p><strong>Email:</strong> john@example.com</p>
+        <p><strong>Course:</strong> Computer Science</p>
+        <p><strong>Date:</strong> 21 September 2025</p>
+      </div>
+
+      <!-- Projects Table -->
+      <h2>Projects</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Group</th>
+            <th>Status</th>
+            <th>Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AI Chatbot</td>
+            <td>Group 1</td>
+            <td class="status-completed">Completed</td>
+            <td>
+              <div class="progress-container">
+                <div class="progress-bar progress-completed" style="width:100%">100%</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Web Portal</td>
+            <td>Group 2</td>
+            <td class="status-pending">In Progress</td>
+            <td>
+              <div class="progress-container">
+                <div class="progress-bar progress-pending" style="width:60%">60%</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Assignments Table -->
+      <h2>Assignments</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Assignment</th>
+            <th>Project</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Marks</th>
+            <th>Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Design Document</td>
+            <td>AI Chatbot</td>
+            <td>2025-09-28</td>
+            <td class="status-completed">Submitted</td>
+            <td>95 / 100</td>
+            <td>
+              <div class="progress-container">
+                <div class="progress-bar progress-completed" style="width:100%">100%</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Prototype</td>
+            <td>Web Portal</td>
+            <td>2025-10-05</td>
+            <td class="status-pending">Pending</td>
+            <td>-</td>
+            <td>
+              <div class="progress-container">
+                <div class="progress-bar progress-pending" style="width:40%">40%</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Milestones Table -->
+      <h2>Milestones</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Milestone</th>
+            <th>Project</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Design Document</td>
+            <td>AI Chatbot</td>
+            <td>2025-09-28</td>
+            <td class="status-completed">Completed</td>
+            <td>★★★★★</td>
+          </tr>
+          <tr>
+            <td>Prototype</td>
+            <td>Web Portal</td>
+            <td>2025-10-05</td>
+            <td class="status-pending">Pending</td>
+            <td>–</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="print-btn" onclick="window.print()">Print Report</button>
+    </div>
+  </div>
+
+</body>
+</html>

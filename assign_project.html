@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Projects</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin:0;
+      font-family: 'Poppins', sans-serif;
+      background:#f4f6f8;
+      color:#333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width:240px;
+      height:100vh;
+      position:fixed;
+      top:0;
+      left:0;
+      background:#1f2937;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      padding:20px;
+    }
+    .sidebar a {
+      color:white;
+      text-decoration:none;
+      padding:12px 15px;
+      margin:5px 0;
+      border-radius:8px;
+      display:block;
+      transition:0.3s;
+    }
+    .sidebar a:hover {
+      background:#374151;
+    }
+    .sidebar h2 {
+      text-align:center;
+      margin-bottom:30px;
+      font-size:22px;
+      color:#fbbf24;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left:240px;
+      padding:40px;
+    }
+    .header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    }
+    .header h1 {
+      margin:0;
+      font-size:28px;
+      color:#111827;
+    }
+    .logout-btn {
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .logout-btn:hover {
+      opacity:0.9;
+    }
+
+    /* Form Card */
+    .card {
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom:40px;
+    }
+    .card h2 {
+      color:#111827;
+      margin-bottom:20px;
+    }
+    .form-group {
+      margin-bottom:20px;
+    }
+    .form-group label {
+      display:block;
+      margin-bottom:8px;
+      font-weight:500;
+      color:#555;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width:100%;
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:15px;
+      outline:none;
+      transition:0.3s;
+      box-sizing:border-box;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color:#fbbf24;
+      box-shadow:0 0 6px rgba(251,191,36,0.5);
+    }
+    button[type="submit"] {
+      padding:12px 20px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    button[type="submit"]:hover {
+      opacity:0.9;
+    }
+
+    /* Table */
+    table {
+      width:100%;
+      border-collapse:collapse;
+      background:white;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding:12px;
+      text-align:left;
+      border-bottom:1px solid #e5e7eb;
+      font-size:14px;
+    }
+    th {
+      background:#111827;
+      color:white;
+    }
+    tr:last-child td {
+      border-bottom:none;
+    }
+    .progress-container {
+      background:#e5e7eb;
+      border-radius:8px;
+      overflow:hidden;
+      height:15px;
+      width:150px;
+    }
+    .progress-bar {
+      height:100%;
+      background:#fbbf24;
+      width:0%;
+      text-align:center;
+      color:white;
+      font-size:12px;
+      line-height:15px;
+    }
+    .grade-input {
+      width:60px;
+      padding:4px;
+      border-radius:4px;
+      border:1px solid #ccc;
+    }
+
+    @media(max-width:768px){
+      .main-content{margin-left:20px; padding:20px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Teacher Panel</h2>
+    <a href="tdashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="tcheckgrp.html"><i class="fas fa-book"></i> View groups</a>
+    <a href="teachers_resources.html"><i class="fas fa-sign-out-alt"></i> Resourses</a>
+     <a href="assign_project.html"><i class="fas fa-home"></i> Assign project</a>
+    <a href="view_students.html"><i class="fas fa-user-graduate"></i> View Students</a>
+    <a href="teacher_messages.html"><i class="fas fa-envelope"></i> Messages</a>
+    <a href="tprofile.html"><i class="fas fa-user"></i> Profile</a>
+    <a href="corrections.html"><i class="fas fa-sign-out-alt"></i> Correction</a>
+    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Group Projects</h1>
+      <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <!-- Assign New Project -->
+    <div class="card">
+      <h2>Assign New Project</h2>
+      <form>
+        <div class="form-group">
+          <label>Project Title</label>
+          <input type="text" placeholder="Enter project title">
+        </div>
+        <div class="form-group">
+          <label>Project Description</label>
+          <textarea rows="4" placeholder="Enter project description"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Deadline</label>
+          <input type="date">
+        </div>
+        <div class="form-group">
+          <label>Assign to Group</label>
+          <select multiple>
+            <option>Group 1</option>
+            <option>Group 2</option>
+            <option>Group 3</option>
+          </select>
+          <small>Hold Ctrl (or Cmd) to select multiple groups</small>
+        </div>
+        <button type="submit">Assign Project</button>
+      </form>
+    </div>
+
+    <!-- Existing Group Projects -->
+    <h2>Existing Group Projects</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Group</th>
+          <th>Project</th>
+          <th>Status</th>
+          <th>Progress</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Group 1</td>
+          <td>AI Chatbot</td>
+          <td>Completed</td>
+          <td>
+            <div class="progress-container">
+              <div class="progress-bar" style="width:100%">100%</div>
+            </div>
+          </td>
+          <td><input type="text" class="grade-input" placeholder="A+"></td>
+        </tr>
+        <tr>
+          <td>Group 2</td>
+          <td>Web Portal</td>
+          <td>In Progress</td>
+          <td>
+            <div class="progress-container">
+              <div class="progress-bar" style="width:60%">60%</div>
+            </div>
+          </td>
+          <td><input type="text" class="grade-input" placeholder="-"></td>
+        </tr>
+        <tr>
+          <td>Group 3</td>
+          <td>Data Analysis</td>
+          <td>Overdue</td>
+          <td>
+            <div class="progress-container">
+              <div class="progress-bar" style="width:30%">30%</div>
+            </div>
+          </td>
+          <td><input type="text" class="grade-input" placeholder="-"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+</html>

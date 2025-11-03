@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin:0;
+      font-family: 'Poppins', sans-serif;
+      background:#f4f6f8;
+      color:#333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width:240px;
+      height:100vh;
+      position:fixed;
+      top:0;
+      left:0;
+      background:#1f2937;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      padding:20px;
+    }
+    .sidebar a {
+      color:white;
+      text-decoration:none;
+      padding:12px 15px;
+      margin:5px 0;
+      border-radius:8px;
+      display:block;
+      transition:0.3s;
+    }
+    .sidebar a:hover {
+      background:#374151;
+    }
+    .sidebar h2 {
+      text-align:center;
+      margin-bottom:30px;
+      font-size:22px;
+      color:#fbbf24;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left:240px;
+      padding:40px;
+    }
+    .header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    }
+    .header h1 {
+      margin:0;
+      font-size:28px;
+      color:#111827;
+    }
+    .logout-btn {
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .logout-btn:hover {
+      opacity:0.9;
+    }
+
+    /* Dashboard Cards */
+    .dashboard-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap:25px;
+    }
+    .card {
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 12px 25px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      margin:0 0 15px;
+      font-size:20px;
+      color:#111827;
+    }
+    .card p {
+      font-size:14px;
+      color:#555;
+    }
+    .card .card-btn {
+      display:inline-block;
+      margin-top:15px;
+      padding:8px 16px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      text-decoration:none;
+      transition:0.2s;
+    }
+    .card .card-btn:hover {
+      opacity:0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Student Panel</h2>
+    <a href="student_dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="studentgroup.html"><i class="fas fa-home"></i> My Group</a>
+
+    <a href="student_projects.html"><i class="fas fa-book"></i> My Projects</a>
+    <a href="student_assignments.html"><i class="fas fa-tasks"></i> Assignments</a>
+    <a href="student_milestones.html"><i class="fas fa-flag"></i> Milestones</a>
+    <a href="student_report.html"><i class="fas fa-file-alt"></i> Progress Report</a>
+    <a href="student_resources.html"><i class="fas fa-folder-open"></i> Resources</a>
+    <a href="student_settings.html"><i class="fas fa-cog"></i> Settings</a>
+    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Welcome, Student</h1>
+      <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="card">
+        <h3><i class="fas fa-book"></i> My Projects</h3>
+        <p>Check your assigned projects and manage submissions.</p>
+        <a href="student_projects.html" class="card-btn">View Projects</a>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-tasks"></i> Assignments</h3>
+        <p>Submit assignments and track deadlines easily.</p>
+        <a href="student_assignments.html" class="card-btn">View Assignments</a>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-flag"></i> Milestones</h3>
+        <p>Track progress milestones for your ongoing projects.</p>
+        <a href="student_milestones.html" class="card-btn">Track Milestones</a>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-file-alt"></i> Progress Report</h3>
+        <p>Download and review your performance reports.</p>
+        <a href="student_report.html" class="card-btn">View Report</a>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-folder-open"></i> Resources</h3>
+        <p>Access study materials, references, and resources.</p>
+        <a href="student_resources.html" class="card-btn">Open Resources</a>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-cog"></i> Settings</h3>
+        <p>Update your profile, password, and preferences.</p>
+        <a href="student_settings.html" class="card-btn">Update Settings</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

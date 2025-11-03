@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Course Materials</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* === yytheme styling === */
+    body {
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:#f4f6f8;
+      color:#333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width:240px;
+      height:100vh;
+      position:fixed;
+      top:0;
+      left:0;
+      background:#1f2937;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      padding:20px;
+    }
+    .sidebar h2 {
+      text-align:center;
+      margin-bottom:30px;
+      font-size:22px;
+      color:#fbbf24;
+    }
+    .sidebar a {
+      color:white;
+      text-decoration:none;
+      padding:12px 15px;
+      margin:5px 0;
+      border-radius:8px;
+      display:block;
+      transition:0.3s;
+    }
+    .sidebar a:hover {
+      background:#374151;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left:240px;
+      padding:40px;
+    }
+    .header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    }
+    .header h1 {
+      margin:0;
+      font-size:28px;
+      color:#111827;
+    }
+    .logout-btn {
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .logout-btn:hover { opacity:0.9; }
+
+    /* Card */
+    .card {
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    .card h2 {
+      color:#111827;
+      margin-bottom:20px;
+    }
+
+    /* Form */
+    .upload-form input[type="text"],
+    .upload-form input[type="file"] {
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:14px;
+      outline:none;
+      transition:0.3s;
+    }
+    .upload-form input:focus {
+      border-color:#667eea;
+      box-shadow:0 0 6px rgba(102,126,234,0.3);
+    }
+    .submit-btn {
+      padding:10px 20px;
+      border:none;
+      border-radius:6px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .submit-btn:hover { opacity:0.9; }
+
+    /* Uploaded Resources */
+    .resource-card {
+      background:#f8f8f8;
+      padding:15px;
+      margin-bottom:15px;
+      border-radius:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    }
+    .resource-card h3 {
+      margin:0;
+      font-size:16px;
+      color:#111827;
+    }
+    .resource-card a {
+      text-decoration:none;
+      color:#667eea;
+      font-weight:500;
+      display:flex;
+      align-items:center;
+      gap:5px;
+    }
+
+    @media(max-width:768px){
+      .main-content{margin-left:20px;padding:20px;}
+      .resource-card{flex-direction:column;align-items:flex-start;gap:5px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Teacher Panel</h2>
+     <a href="tdashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="tcheckgrp.html"><i class="fas fa-book"></i> View groups</a>
+    <a href="teachers_resources.html"><i class="fas fa-sign-out-alt"></i> Resourses</a>
+     <a href="assign_project.html"><i class="fas fa-home"></i> Assign project</a>
+    <a href="view_students.html"><i class="fas fa-user-graduate"></i> View Students</a>
+    <a href="teacher_messages.html"><i class="fas fa-envelope"></i> Messages</a>
+    <a href="tprofile.html"><i class="fas fa-user"></i> Profile</a>
+    <a href="corrections.html"><i class="fas fa-sign-out-alt"></i> Correction</a>
+    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Upload Course Materials</h1>
+      <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <div class="card">
+      <h2>Add New Resource</h2>
+      <form class="upload-form">
+        <input type="text" placeholder="Resource Title" required>
+        <input type="text" placeholder="Description" required>
+        <input type="file" required>
+        <button type="submit" class="submit-btn">Upload Resource</button>
+      </form>
+
+      <h2 style="margin-top:30px;">Uploaded Resources</h2>
+
+      <div class="resource-card">
+        <h3>Lecture Notes: HTML & CSS</h3>
+        <a href="resources/html_css_notes.pdf" download><i class="fas fa-download"></i> Download</a>
+      </div>
+      <div class="resource-card">
+        <h3>Sample Project Code</h3>
+        <a href="resources/sample_project.zip" download><i class="fas fa-download"></i> Download</a>
+      </div>
+      <div class="resource-card">
+        <h3>Tutorial Video: JavaScript Basics</h3>
+        <a href="resources/js_basics.mp4" download><i class="fas fa-download"></i> Download</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

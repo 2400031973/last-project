@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Messages</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6f8;
+      color: #111827;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #1f2937;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 22px;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 15px;
+      margin: 5px 0;
+      border-radius: 8px;
+      display: block;
+      transition: 0.3s;
+    }
+    .sidebar a:hover { background: #374151; }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 240px;
+      padding: 40px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    .logout-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #fbbf24;
+      color: #111827;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .logout-btn:hover { opacity: 0.9; }
+
+    /* Messages Card */
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .message {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .message:last-child { border-bottom: none; }
+
+    .message .info {
+      display: flex;
+      flex-direction: column;
+    }
+    .message .info span {
+      margin: 2px 0;
+      color: #555;
+    }
+
+    .message .actions button {
+      background: #fbbf24;
+      border: none;
+      color: #111827;
+      padding: 6px 12px;
+      margin-left: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 600;
+    }
+    .message .actions button:hover {
+      background: #f59e0b;
+    }
+
+    @media(max-width:768px){
+      .main-content { margin-left: 20px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Teacher Panel</h2>
+      <a href="tdashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="tcheckgrp.html"><i class="fas fa-book"></i> View groups</a>
+    <a href="teachers_resources.html"><i class="fas fa-sign-out-alt"></i> Resourses</a>
+     <a href="assign_project.html"><i class="fas fa-home"></i> Assign project</a>
+    <a href="view_students.html"><i class="fas fa-user-graduate"></i> View Students</a>
+    <a href="teacher_messages.html"><i class="fas fa-envelope"></i> Messages</a>
+    <a href="tprofile.html"><i class="fas fa-user"></i> Profile</a>
+    <a href="corrections.html"><i class="fas fa-sign-out-alt"></i> Correction</a>
+    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Messages</h1>
+      <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <div class="card">
+      <div class="message">
+        <div class="info">
+          <strong>John Doe</strong>
+          <span>john@example.com</span>
+          <span>Hi, can you check my project submission?</span>
+        </div>
+        <div class="actions">
+          <button>Reply</button>
+          <button>Mark Read</button>
+        </div>
+      </div>
+
+      <div class="message">
+        <div class="info">
+          <strong>Jane Smith</strong>
+          <span>jane@example.com</span>
+          <span>I need help with the project group.</span>
+        </div>
+        <div class="actions">
+          <button>Reply</button>
+          <button>Mark Read</button>
+        </div>
+      </div>
+
+      <div class="message">
+        <div class="info">
+          <strong>Mike Johnson</strong>
+          <span>mike@example.com</span>
+          <span>Project deadline extension request.</span>
+        </div>
+        <div class="actions">
+          <button>Reply</button>
+          <button>Mark Read</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

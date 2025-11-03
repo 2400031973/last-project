@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Project Portal - Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* === yytheme login styling === */
+    body {
+      margin:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:'Poppins',sans-serif;
+      background:#f4f6f8;
+    }
+
+    .login-container {
+      width:400px;
+      padding:40px;
+      border-radius:15px;
+      background:white;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      text-align:center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    .login-container h2 {
+      margin-bottom:25px;
+      font-size:26px;
+      color:#111827;
+      font-weight:600;
+    }
+
+    .input-group {
+      position:relative;
+      margin:18px 0;
+    }
+
+    .input-group input,
+    .input-group select {
+      width:100%;
+      padding:12px 45px;
+      border:1px solid #e5e7eb;
+      border-radius:8px;
+      outline:none;
+      font-size:15px;
+      transition:0.3s;
+      box-sizing:border-box;
+      background:#f9f9f9;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      border-color:#fbbf24;
+      box-shadow:0 0 6px rgba(251,191,36,0.3);
+      background:#fff;
+    }
+
+    .input-group i {
+      position:absolute;
+      left:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#fbbf24;
+      font-size:16px;
+    }
+
+    .login-container button {
+      width:100%;
+      padding:12px;
+      margin-top:20px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+
+    .login-container button:hover {
+      opacity:0.9;
+    }
+
+    .login-container p {
+      margin-top:20px;
+      font-size:14px;
+      color:#555;
+    }
+
+    .login-container a {
+      color:#fbbf24;
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    .login-container a:hover {
+      text-decoration:underline;
+    }
+
+    @media(max-width:480px){
+      .login-container{width:90%; padding:30px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="email" placeholder="Enter Email" required>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" placeholder="Enter Password" required>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-user-graduate"></i>
+        <select id="role" required>
+          <option value="" disabled selected>Select Role</option>
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form submission
+      const role = document.getElementById('role').value;
+      if(role === 'teacher') {
+        window.location.href = 'tdashboard.html';
+      } else if(role === 'student') {
+        window.location.href = 'student_dashboard.html';
+      } else {
+        alert('Please select a role.');
+      }
+    });
+  </script>
+
+</body>
+</html>

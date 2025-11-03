@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* === yytheme styling === */
+    body {
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:#f4f6f8;
+      color:#333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width:240px;
+      height:100vh;
+      position:fixed;
+      top:0;
+      left:0;
+      background:#1f2937;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      padding:20px;
+    }
+    .sidebar h2 {
+      text-align:center;
+      margin-bottom:30px;
+      font-size:22px;
+      color:#fbbf24;
+    }
+    .sidebar a {
+      color:white;
+      text-decoration:none;
+      padding:12px 15px;
+      margin:5px 0;
+      border-radius:8px;
+      display:block;
+      transition:0.3s;
+    }
+    .sidebar a:hover {
+      background:#374151;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left:240px;
+      padding:40px;
+    }
+    .header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    }
+    .header h1 {
+      margin:0;
+      font-size:28px;
+      color:#111827;
+    }
+    .logout-btn {
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .logout-btn:hover { opacity:0.9; }
+
+    /* Profile Card */
+    .card {
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      max-width:600px;
+      margin:auto;
+    }
+    .card h2 {
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+    .profile-field {
+      margin-bottom:20px;
+    }
+    .profile-field label {
+      display:block;
+      margin-bottom:6px;
+      font-weight:600;
+      color:#555;
+    }
+    .profile-field input {
+      width:100%;
+      padding:12px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:15px;
+      outline:none;
+      transition:0.3s;
+    }
+    .profile-field input:focus {
+      border-color:#667eea;
+      box-shadow:0 0 6px rgba(102,126,234,0.3);
+    }
+    .update-btn {
+      display:block;
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      background:#fbbf24;
+      color:#111827;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .update-btn:hover { opacity:0.9; }
+
+    @media(max-width:768px){
+      .main-content{margin-left:20px;padding:20px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Teacher Panel</h2>
+      <a href="tdashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="tcheckgrp.html"><i class="fas fa-book"></i> View groups</a>
+    <a href="teachers_resources.html"><i class="fas fa-sign-out-alt"></i> Resourses</a>
+     <a href="assign_project.html"><i class="fas fa-home"></i> Assign project</a>
+    <a href="view_students.html"><i class="fas fa-user-graduate"></i> View Students</a>
+    <a href="teacher_messages.html"><i class="fas fa-envelope"></i> Messages</a>
+    <a href="tprofile.html"><i class="fas fa-user"></i> Profile</a>
+    <a href="corrections.html"><i class="fas fa-sign-out-alt"></i> Correction</a>
+    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Profile</h1>
+      <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <div class="card">
+      <h2>Teacher Profile</h2>
+      <form>
+        <div class="profile-field">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" value="John Doe">
+        </div>
+        <div class="profile-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" value="john@example.com">
+        </div>
+        <div class="profile-field">
+          <label for="department">Department</label>
+          <input type="text" id="department" value="Computer Science">
+        </div>
+        <div class="profile-field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" value="+91 9876543210">
+        </div>
+        <button type="submit" class="update-btn">Update Profile</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
